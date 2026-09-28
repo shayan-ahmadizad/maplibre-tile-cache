@@ -1,0 +1,75 @@
+{
+  "name": "maplibre-tile-cache",
+  "version": "0.1.0",
+  "description": "Persistent IndexedDB tile cache for MapLibre GL JS, with LRU eviction and area prefetching for offline use.",
+  "keywords": [
+    "maplibre",
+    "maplibre-gl",
+    "vector-tiles",
+    "tiles",
+    "cache",
+    "indexeddb",
+    "offline",
+    "lru",
+    "pbf"
+  ],
+  "author": "Shayan Ahmadizad",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shayan2781/maplibre-tile-cache.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Shayan2781/maplibre-tile-cache/issues"
+  },
+  "homepage": "https://github.com/Shayan2781/maplibre-tile-cache#readme",
+  "packageManager": "pnpm@10.30.2",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "example": "vite examples/basic",
+    "format": "prettier --write .",
+    "prepublishOnly": "pnpm typecheck && pnpm test && pnpm build"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
+  "devDependencies": {
+    "fake-indexeddb": "^6.0.0",
+    "maplibre-gl": "^5.24.0",
+    "prettier": "^3.3.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.8.0",
+    "vite": "^7.3.6",
+    "vitest": "^3.2.0"
+  }
+}

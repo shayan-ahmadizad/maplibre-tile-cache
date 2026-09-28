@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>maplibre-tile-cache example</title>
+    <style>
+      html,
+      body,
+      #map {
+        margin: 0;
+        height: 100%;
+      }
+      #panel {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        min-width: 240px;
+        padding: 10px 12px;
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: 0 1px 4px rgb(0 0 0 / 20%);
+        font:
+          13px/1.5 system-ui,
+          sans-serif;
+      }
+      #panel button {
+        margin-right: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="panel">
+      <div>From cache: <b id="hits">0</b>, from network: <b id="misses">0</b></div>
+      <div style="margin: 8px 0">
+        <button id="save">Save this view</button>
+        <button id="clear">Clear cache</button>
+      </div>
+      <div id="status">&nbsp;</div>
+    </div>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
